@@ -20,6 +20,13 @@ namespace FileWebAPI.Controllers
         }
 
         [HttpGet]
+        public async Task<IActionResult> GetFilePath(FileType fileType)
+        {
+            var filePaths = _pathHelper.GetPath(fileType.ToString());
+            return Ok(filePaths);
+        }
+
+        [HttpGet]
         public async Task<IActionResult> GetFiles(FileType fileType)
         {
             var filePaths = _pathHelper.GetPath(fileType.ToString());
