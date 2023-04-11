@@ -8,6 +8,7 @@ COPY ["FileWebAPI/FileWebAPI.csproj", "FileWebAPI/"]
 RUN dotnet restore "FileWebAPI/FileWebAPI.csproj"
 COPY . .
 WORKDIR "/src/FileWebAPI"
+RUN chmod -R 777 /app
 RUN dotnet build "FileWebAPI.csproj" -c Release -o /app/build
 
 FROM build AS publish
