@@ -38,6 +38,7 @@ namespace FileWebAPI.Controllers
         public async Task<IActionResult> Add([FromForm] SaveFileRequest data)
         {
             var fullPath = _pathHelper.GetPath(data.FileType.ToString());
+            Console.WriteLine("fulllll "+fullPath);
             var saveFileResult = await _fileService.SaveFile(new SaveFileRequest { File = data.File, Path = fullPath });
 
             return Ok(saveFileResult);
